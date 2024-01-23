@@ -1,22 +1,18 @@
-import random
-import string
+num1 = float(input("Enter the first number: "))
+operator = input("Enter the operation (+, -, *, /): ")
+num2 = float(input("Enter the second number: "))
 
-def generate_password(length):
-    characters = string.ascii_letters + string.digits + string.punctuation
-    password = ''.join(random.choice(characters) for _ in range(length))
-    return password
-
-def password_generator():
-    try:
-        length = int(input("Enter the desired length of the password: "))
-        if length <= 0:
-            print("Please enter a positive length.")
-            return
-        password = generate_password(length)
-        print(f"Generated Password: {password}")
-
-    except ValueError:
-        print("Invalid input. Please enter a valid positive integer for the password length.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-password_generator()
+if operator == "+":
+    result = num1 + num2
+elif operator == "-":
+    result = num1 - num2
+elif operator == "*":
+    result = num1 * num2
+elif operator == "/":
+    if num2 != 0:
+        result = num1 / num2
+    else:
+        print("Error: Division by zero is not allowed.")
+else:
+    print("Invalid operator. Please enter +, -, *, or /.")
+print("Result:"result)
